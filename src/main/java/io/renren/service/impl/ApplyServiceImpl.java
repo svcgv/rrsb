@@ -56,5 +56,11 @@ public class ApplyServiceImpl implements ApplyService {
 	public List<Map<String, Object>> applyselect(Map<String, Object> map){
 		return applyDao.applyselect(map);
 	}
+
+	@Override
+	public List<Map<String, Object>> bgList(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return applyDao.bgList(map);
+	}
 	
 }

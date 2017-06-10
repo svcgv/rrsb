@@ -49,8 +49,8 @@ public class JobController {
 		//查询列表数据
         Query query = new Query(params);
         //System.out.println("``````````````````");
-        long userId= ShiroUtils.getUserId();
-        query.put("userId", userId);
+        //long userId= ShiroUtils.getUserId();
+        //query.put("userId", userId);
 		List<JobEntity> jobList = jobService.queryList(query);
 		int total = jobService.queryTotal(query);
 		

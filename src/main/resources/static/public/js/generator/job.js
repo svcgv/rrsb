@@ -17,7 +17,7 @@ $(function () {
 			{ label: '发布人姓名', name: 'pubName', index: '$pub_name', width: 80 }, 			
 			{ label: '发布人电话', name: 'pubPhone', index: '$pub_phone', width: 80 }, 			
 			{ label: '公司', name: 'company', index: '$company', width: 80 }, 			
-			{ label: '当前状态', name: 'jobState', index: '$job_state', width: 80 } 			
+			{ label: '当前状态', name: 'jobState', index: '$job_state', width: 80 }
 					
         ],
 		viewrecords: true,

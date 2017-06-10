@@ -42,7 +42,7 @@ public class ApplyController {
 		//查询列表数据
         Query query = new Query(params);
 
-		List<ApplyEntity> applyList = applyService.queryList(query);
+		List<Map<String, Object>> applyList = applyService.bgList(query);
 		int total = applyService.queryTotal(query);
 		
 		PageUtils pageUtil = new PageUtils(applyList, total, query.getLimit(), query.getPage());

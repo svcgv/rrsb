@@ -26,6 +26,9 @@ public class ApiApplyController {
 	@Autowired
 	private ApplyService applyservice;
 	
+	/*
+	 * 添加申请
+	 */
 	@GetMapping("addApply")
     public R addApply(@LoginUser EmployeeEntity emp, ApplyEntity apply, Long jobId, String jobName, JobEntity job, HttpServletResponse response){
     	System.out.println("jobId="+jobId);
@@ -60,13 +63,16 @@ public class ApiApplyController {
 	}
 	
 	@GetMapping("applyList")
-	public R applyList(Long jobId, HttpServletResponse response){
+	public R applyList(Long jobId){
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("jobId", jobId);
 		System.out.println("jobId="+jobId);
 		List<Map<String, Object>> list = applyservice.applyselect(map);
 		System.out.println("list="+list);
-		response.setHeader("Access-Control-Allow-Origin","*");
+		
 		return R.ok().put("data", list);
 	}
+	
+	
+	
 }

@@ -28,6 +28,8 @@
     		<if test="actstate !=null ">and actstate=#{actstate}</if>
     		<if test="actid !=null"> and activity.actid=#{actid}</if>
     	</where>
+    	 order by actId desc
+    	
     </select>
     
 	<select id="queryObject" resultType="io.renren.entity.ActivityEntity">

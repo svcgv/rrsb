@@ -42,8 +42,39 @@
 		
 	</select>
 
-	<select id="queryList" resultType="io.renren.entity.ApplyEntity">
-		select * from apply
+	<select id="bgList" parameterType="java.util.Map" resultType="java.util.Map">
+		select  a.job_id,
+				a.job_name,
+				a.emp_id,
+				a.emp_name,
+				a.emp_phone,
+				a.emp_time,
+				j.company,
+				j.job_count 
+		from apply a 
+		LEFT JOIN job j on j.job_id=a.job_id
+	<where>
+		<if test="company != null">company like '%${company}%' </if>
+	</where>
+	 <choose>
+           <when test="sidx != null and sidx.trim() != ''">
+               order by ${sidx} ${order}
+           </when>
+		<otherwise>
+               order by company desc
+		</otherwise>
+       </choose>
+	<if test="offset != null and limit != null">
+		limit #{offset}, #{limit}
+	</if>
+	</select>
+
+
+
+
+	<select id="queryList" resultType="java.util.Map">
+		select a.job_id,a.job_name,a.emp_id,a.emp_name,a.emp_phone,j.company,j.job_count
+		 from apply a LEFT JOIN job j on j.job_id=a.job_id
 		
         <choose>
             <when test="sidx != null and sidx.trim() != ''">
@@ -117,5 +148,7 @@
 			#{appId}
 		</foreach>
 	</delete>
+	
+	
 
 </mapper>

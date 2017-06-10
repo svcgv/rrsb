@@ -29,4 +29,6 @@ public interface ApplyService {
 	void deleteBatch(Long[] appIds);
 	
 	List<Map<String, Object>> applyselect(Map<String, Object> map);
+	
+	List<Map<String , Object>> bgList(Map<String , Object> map);
 }

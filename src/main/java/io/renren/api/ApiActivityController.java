@@ -55,7 +55,7 @@ public class ApiActivityController {
 	}
 	
 	//@IgnoreAuth
-    @PostMapping("uploadPic")
+  /*  @PostMapping("uploadPic")
     public R uploadPic(@RequestParam("pic") MultipartFile[] files,HttpServletRequest request,HttpServletResponse response) throws IllegalStateException, IOException{
     	response.setHeader("Access-Control-Allow-Origin","*");
 		String username = request.getParameter("username");
@@ -96,7 +96,7 @@ public class ApiActivityController {
 		
         return R.ok().put("url",url);
     }
-	
+	*/
 	
 	/**
 	 * 通过actid查找一条活动
@@ -127,7 +127,7 @@ public class ApiActivityController {
 	 * @return
 	 * @author liyaguang 2017-4-10
 	 */
-	@PostMapping("activityAdd")
+	/*@PostMapping("activityAdd")
 	public R activityAdd(@RequestParam("pic") MultipartFile[] files,HttpServletRequest req,HttpServletResponse res, @LoginUser EmployeeEntity emp, ActivityEntity act)throws IllegalStateException, IOException{
 		res.setHeader("Access-Control-Allow-Origin", "*");
 		Date date = new Date();
@@ -178,7 +178,7 @@ public class ApiActivityController {
 		}
 		activityService.save(act);
 		return R.ok();
-	}
+	}*/
 	
 	
 	
@@ -232,11 +232,9 @@ public class ApiActivityController {
 	 * @author liyaguang  2017-4-12
 	 */
 	@GetMapping("activityAllList")
-	public R activityAllList(HttpServletResponse res, @LoginUser EmployeeEntity emp,Long type){
-		res.setHeader("Access-Control-Allow-Origin", "*");
+	public R activityAllList(@LoginUser EmployeeEntity emp,Long type){
+		
 		Long empid = emp.getEmpid();
-		//System.out.println("empid="+empid);
-		//System.out.println("type="+type);
 		//查询条件
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<Map<String, Object>> list = null;
