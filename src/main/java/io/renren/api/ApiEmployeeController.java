@@ -87,7 +87,7 @@ public class ApiEmployeeController {
      */
     
     @RequestMapping("updateEmp")
-    public R updateEmp(@LoginUser EmployeeEntity emp,@RequestParam EmployeeEntity e){
+    public R updateEmp(@LoginUser EmployeeEntity emp, EmployeeEntity e){
     	e.setEmpid(emp.getEmpid());
     	employeeService.update(e);
 		return R.ok();
@@ -113,7 +113,7 @@ public class ApiEmployeeController {
     	emp.setEmpent(empent);
     	String empState="0";
     	emp.setEmpstate(empState);
-    	emp.setEmptype("0001");
+    	emp.setEmptype("0000");
     	employeeService.update(emp);
     	
     	

@@ -66,7 +66,7 @@ public class ApiNoticeController {
 
     
     
-
+/*
     @PostMapping("addNotice")
     public R addNotice(@LoginUser EmployeeEntity emp,@RequestParam("pic") MultipartFile[] files,HttpServletRequest request,HttpServletResponse response) throws IllegalStateException, IOException{
     	response.setHeader("Access-Control-Allow-Origin","*");
@@ -82,7 +82,7 @@ public class ApiNoticeController {
 		}
 		
 		
-		/*String url = "";
+		String url = "";
 		//将文件保存在服务器中 （先建一个文件夹来保存文件，这个文件夹希望和项目名称在同一级目录下）
 		String path = request.getSession().getServletContext().getRealPath("upload");
 		String path2 = request.getSession().getServletContext().getRealPath("renren-web");
@@ -122,7 +122,7 @@ public class ApiNoticeController {
 				String original_url =basePath+ "/pics/"+uuid+"."+format;
 				System.out.println("original_url="+original_url);
 				System.out.println("url="+url);
-		}*/
+		}
 		
 		
 		
@@ -142,7 +142,7 @@ public class ApiNoticeController {
 		
 		
         return R.ok();
-    }
+    }*/
     
     /**
      * 添加公告信息
@@ -152,8 +152,8 @@ public class ApiNoticeController {
      * @author penghu 2017-4-11
      */
     
-    @GetMapping("noticeAdd")
-    public R noticeAdd(@LoginUser EmployeeEntity emp,NoticeEntity notice,HttpServletResponse response){
+    @PostMapping("noticeAdd")
+    public R noticeAdd(@LoginUser EmployeeEntity emp,NoticeEntity notice){
     	
     	System.out.println("noticetitle="+notice.getNoticetitle()+" noticecontent="+notice.getNoticecontent());
     	notice.setNoticeemp(emp.getEmpid());
@@ -162,7 +162,8 @@ public class ApiNoticeController {
     	notice.setNoticetime(DateUtils.format(new Date(), DateUtils.DATE_TIME_PATTERN));
     	noticeService.save(notice);
     	//解决跨域的问题
-    	response.setHeader("Access-Control-Allow-Origin","*");
+    	/*参数：HttpServletResponse response
+    	response.setHeader("Access-Control-Allow-Origin","*");*/
     	return R.ok();
     }
     

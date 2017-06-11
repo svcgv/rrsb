@@ -275,7 +275,7 @@ public class ApiActivityController {
 	 * @return
 	 * @author liyaguang  2017-4-12
 	 */
-	@GetMapping("update")
+	@GetMapping("ActivityUpdate")
 	public R update( Long empid, ActivityEntity act){
 		
 		Long actstate = act.getActstate();
